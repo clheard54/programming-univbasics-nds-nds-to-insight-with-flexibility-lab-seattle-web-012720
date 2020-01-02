@@ -52,8 +52,12 @@ def gross_per_studio(collection)
   #
   collection.each {|movie_info|
      if !studios_totals[:(movie_info[:studio])]
-       studio_gross
-  
+       studios_totals[:(movie_info[:studio])] = movie_info[:worldwide_gross]
+     else
+       studios_totals[:(movie_info[:studio])] += movie_info[:worldwide_gross]
+     end
+  }
+
   # INPUT:
   # * collection: Array of Hashes  where each Hash represents a movie
   #
