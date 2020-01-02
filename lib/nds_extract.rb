@@ -34,6 +34,8 @@ end
 # Your code after this point
 
 def movies_with_director_key(name, movies_collection)
+  result_array = []
+
   # GOAL: For each Hash in an Array (movies_collection), provide a collection
   # of movies and a directors name to the movie_with_director_name method
   # and accumulate the returned Array of movies into a new Array that's
@@ -43,12 +45,11 @@ def movies_with_director_key(name, movies_collection)
   # * name: A director's name
   # * movies_collection: An Array of Hashes where each Hash represents a movie
   movies_collection.each {|movie_hash|
+    movie_with_director_name(name, movie_hash)
     movie_hash[:director_name] = name
-  # RETURN:
-  #
-  # Array of Hashes where each Hash represents a movie; however, they should all have a
-  # :director_name key. This addition can be done by using the provided
-  # movie_with_director_name method
+    result_array << movie_hash
+  }
+  return result_array
 end
 
 
