@@ -62,7 +62,11 @@ end
 def movies_with_directors_set(source)
   result = []
   source.each {|director_hash|
-    director_hash[:movies]
+    name = director_hash[:name]
+    title_list = director_hash[:movies]
+    inner_arrays = movies_with_director_key(name, title_list)
+    result << inner_arrays
+  }
   # GOAL: For each director, find their :movies Array and stick it in a new Array
   #
   # INPUT:
