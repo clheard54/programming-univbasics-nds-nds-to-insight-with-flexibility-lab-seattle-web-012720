@@ -46,30 +46,23 @@ end
 
 def gross_per_studio(collection)
   studios_totals = {}
-  # GOAL: collection(AoH) 
-  # return a Hash that includes the total worldwide_gross of all the movies from
-  # each studio.
-  #
+
   collection.each {|movie_info|
-    puts key = movie_info[:studio]
-    if !studios_totals[key]
-       studios_totals[key] = movie_info[:worldwide_gross]
+    key = movie_info[:studio]
+    if !studios_totals["#{key}"]
+       studios_totals["#{key}"] = movie_info[:worldwide_gross]
     else
-       studios_totals[:(movie_info[:studio])] += movie_info[:worldwide_gross]
+       studios_totals["#{key}"] += movie_info[:worldwide_gross]
     end
   }
-
-  # INPUT:
-  # * collection: Array of Hashes  where each Hash represents a movie
-  #
-  # RETURN:
-  #
-  # Hash whose keys are the studio names and whose values are the sum
-  # total of all the worldwide_gross numbers for every movie in the input Hash
   studios_totals
 end
 
+
 def movies_with_directors_set(source)
+  result = []
+  source.each {|director_hash|
+    
   # GOAL: For each director, find their :movies Array and stick it in a new Array
   #
   # INPUT:
@@ -80,6 +73,7 @@ def movies_with_directors_set(source)
   #
   # Array of Arrays containing all of a director's movies. Each movie will need
   # to have a :director_name key added to it.
+  result
 end
 
 # ----------------    End of Your Code Region --------------------
