@@ -51,11 +51,12 @@ def gross_per_studio(collection)
   # each studio.
   #
   collection.each {|movie_info|
-     if !studios_totals[:(movie_info[:studio])]
-       studios_totals[:(movie_info[:studio])] = movie_info[:worldwide_gross]
-     else
+    puts key = movie_info[:studio]
+    if !studios_totals[key]
+       studios_totals[key] = movie_info[:worldwide_gross]
+    else
        studios_totals[:(movie_info[:studio])] += movie_info[:worldwide_gross]
-     end
+    end
   }
 
   # INPUT:
